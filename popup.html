@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SafeTask</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .settings-section {
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        
+        .api-key-setting {
+            margin-top: 10px;
+        }
+        
+        .api-key-setting input {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+        
+        .api-key-setting button {
+            width: 100%;
+            padding: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .api-key-setting button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" data-tab="tasks">Tasks</button>
+            <button class="tab-button" data-tab="focus">Focus Mode</button>
+            <button class="tab-button" data-tab="security">Security</button>
+        </div>
+
+        <div class="tab-content" id="tasks">
+            <h2>Task Manager</h2>
+            <div class="task-input">
+                <input type="text" id="new-task" placeholder="Add new task...">
+                <input type="datetime-local" id="task-deadline">
+                <button id="add-task">Add</button>
+            </div>
+            <ul id="task-list"></ul>
+        </div>
+
+        <div class="tab-content" id="focus" style="display: none;">
+            <h2>Focus Mode</h2>
+            <div class="timer-controls">
+                <button id="start-timer">Start Focus Session</button>
+                <button id="stop-timer">Stop</button>
+            </div>
+            <div class="timer-display">25:00</div>
+            <div class="blocked-sites">
+                <h3>Blocked Sites</h3>
+                <input type="text" id="new-blocked-site" placeholder="Add site to block...">
+                <button id="add-blocked-site">Add</button>
+                <ul id="blocked-sites-list"></ul>
+            </div>
+        </div>
+
+        <div class="tab-content" id="security" style="display: none;">
+            <h2>Security Dashboard</h2>
+            <div class="security-status">
+                <h3>URL Scanner</h3>
+                <div id="url-status">Current URL: <span id="current-url"></span></div>
+                <div id="url-safety-status"></div>
+            </div>
+            <div class="cookie-monitor">
+                <h3>Cookie Monitor</h3>
+                <div id="cookie-status"></div>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html> 
